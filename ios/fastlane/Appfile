@@ -1,0 +1,8 @@
+app_identifier("com.helloworld") # The bundle identifier of your app
+apple_id("helloWorld@gmail.com") # Your Apple email address
+
+itc_team_id("123985446") # App Store Connect Team ID
+team_id("G86Z87HGXJ") # Developer Portal Team ID
+
+# For more information about the Appfile, see:
+#     https://docs.fastlane.tools/advanced/#appfile
