@@ -4,11 +4,11 @@ React Native Architecture Blueprints includes the following rock-solid technical
 
 ## Requirements
 
-- [react-native 0.68.2](https://www.npmjs.com/package/react-native?activeTab=versions)
+- [React-native 0.68.2](https://www.npmjs.com/package/react-native?activeTab=versions)
 
 ## Environment
 
-**iOS**
+**IOS**
 - iOS 13+
 
 **Android**
@@ -22,12 +22,12 @@ React Native Architecture Blueprints includes the following rock-solid technical
 - [MobX-State-Tree](https://mobx-state-tree.js.org/intro/welcome)
 - [TypeScript](https://reactnative.dev/docs/typescript)
 - [AsyncStorage](https://react-native-async-storage.github.io/async-storage/docs/install/)
-- [apisauce](https://github.com/infinitered/apisauce)
-- [eslint](https://www.npmjs.com/package/@react-native-community/eslint-config)
-- [i18n-js](https://github.com/AlexanderZaytsev/react-native-i18n)
+- [Apisauce](https://github.com/infinitered/apisauce)
+- [Eslint](https://www.npmjs.com/package/@react-native-community/eslint-config)
+- [I18n-js](https://github.com/AlexanderZaytsev/react-native-i18n)
 - [Jest](https://jestjs.io/docs/tutorial-react-native)
-- [react-native-size-matters](https://github.com/nirsky/react-native-size-matters)
-- [fastlane](https://docs.fastlane.tools/getting-started/cross-platform/react-native/)
+- [React-native-size-matters](https://github.com/nirsky/react-native-size-matters)
+- [Fastlane](https://docs.fastlane.tools/getting-started/cross-platform/react-native/)
 
 
 # Project's structure 
@@ -104,17 +104,6 @@ Here lives the theme for your application, including spacing, colors, and typogr
 # Utils
 This is a great place to put miscellaneous helpers and utilities. Things like date helpers, formatters, etc. are often found here. However, it should only be used for things that are truely shared across your application. If a helper or utility is only used by a specific component or model, consider co-locating your helper with that component or model.
 
-### ./ignite directory
-
-The `ignite` directory stores all things Ignite, including CLI and boilerplate items. Here you will find generators, plugins and examples to help you get started with React Native.
-
-### ./storybook directory
-
-This is where your stories will be registered and where the Storybook configs will live.
-
-### ./test directory
-
-This directory will hold your Jest configs and mocks, as well as your [storyshots](https://github.com/storybooks/storybook/tree/master/addons/storyshots) test file. This is a file that contains the snapshots of all your component storybooks.
 
 ### Fastlane
 
@@ -132,6 +121,8 @@ fastlane ios publish
 cd android
 fastlane android build
 fastlane android publish
+
+```
 
 
 ## The latest and greatest boilerplate for Infinite Red opinions
