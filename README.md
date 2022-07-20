@@ -1,25 +1,39 @@
-# Welcome to your new ignited app!
+# React Native Architecture Blueprints
 
-[![CircleCI](https://circleci.com/gh/infinitered/ignite.svg?style=svg)](https://circleci.com/gh/infinitered/ignite)
+React Native Architecture Blueprints includes the following rock-solid technical and Clean Architecture principles
 
-## The latest and greatest boilerplate for Infinite Red opinions
+## Requirements
 
-This is the boilerplate that [Infinite Red](https://infinite.red) uses as a way to test bleeding-edge changes to our React Native stack.
+- [react-native 0.68.2](https://www.npmjs.com/package/react-native?activeTab=versions)
 
-Currently includes:
+## Environment
 
-- React Native
-- React Navigation
-- MobX State Tree
-- TypeScript
-- And more!
+**iOS**
+- iOS 13+
 
-## Quick Start
+**Android**
+- Android 5.1+
+    - minSdkVersion 22
+- targetSdkVersion 30
 
-The Ignite boilerplate project's structure will look similar to this:
+## Documentation
+
+- [React Navigation 6](https://reactnavigation.org/blog/2021/08/14/react-navigation-6.0/)
+- [MobX-State-Tree](https://mobx-state-tree.js.org/intro/welcome)
+- [TypeScript](https://reactnative.dev/docs/typescript)
+- [AsyncStorage](https://react-native-async-storage.github.io/async-storage/docs/install/)
+- [apisauce](https://github.com/infinitered/apisauce)
+- [eslint](https://www.npmjs.com/package/@react-native-community/eslint-config)
+- [i18n-js](https://github.com/AlexanderZaytsev/react-native-i18n)
+- [Jest](https://jestjs.io/docs/tutorial-react-native)
+- [react-native-size-matters](https://github.com/nirsky/react-native-size-matters)
+- [fastlane](https://docs.fastlane.tools/getting-started/cross-platform/react-native/)
+
+
+# Project's structure 
 
 ```
-ignite-project
+Blueprint-project
 ├── app
 │   ├── components
 │   ├── i18n
@@ -37,32 +51,14 @@ ignite-project
 │   ├── storybook.ts
 │   ├── toggle-storybook.tsx
 ├── test
-│   ├── __snapshots__
-│   ├── storyshots.test.ts.snap
-│   ├── mock-i18n.ts
-│   ├── mock-reactotron.ts
 │   ├── setup.ts
 │   ├── storyshots.test.ts
 ├── README.md
 ├── android
 │   ├── app
-│   ├── build.gradle
-│   ├── gradle
-│   ├── gradle.properties
-│   ├── gradlew
-│   ├── gradlew.bat
-│   ├── keystores
-│   └── settings.gradle
-├── ignite
-│   ├── ignite.json
-│   └── plugins
 ├── index.js
 ├── ios
-│   ├── IgniteProject
-│   ├── IgniteProject-tvOS
-│   ├── IgniteProject-tvOSTests
-│   ├── IgniteProject.xcodeproj
-│   └── IgniteProjectTests
+│   ├── Blueprint.xcodeproj
 ├── .env
 └── package.json
 
@@ -70,7 +66,7 @@ ignite-project
 
 ### ./app directory
 
-Included in an Ignite boilerplate project is the `app` directory. This is a directory you would normally have to create when using vanilla React Native.
+Included in an Blueprint boilerplate project is the `app` directory. This is a directory you would normally have to create when using vanilla React Native.
 
 The inside of the src directory looks similar to the following:
 
@@ -87,31 +83,26 @@ app
 └── app.tsx
 ```
 
-**components**
+# Components
 This is where your React components will live. Each component will have a directory containing the `.tsx` file, along with a story file, and optionally `.presets`, and `.props` files for larger components. The app will come with some commonly used components like Button.
 
-**i18n**
-This is where your translations will live if you are using `react-native-i18n`.
-
-**models**
+# Models
 This is where your app's models will live. Each model has a directory which will contain the `mobx-state-tree` model file, test file, and any other supporting files like actions, types, etc.
 
-**navigators**
+# Navigators
 This is where your `react-navigation` navigators will live.
 
-**screens**
+# Screens
 This is where your screen components will live. A screen is a React component which will take up the entire screen and be part of the navigation hierarchy. Each screen will have a directory containing the `.tsx` file, along with any assets or other helper files.
 
-**services**
+# Services
 Any services that interface with the outside world will live here (think REST APIs, Push Notifications, etc.).
 
-**theme**
+# Theme
 Here lives the theme for your application, including spacing, colors, and typography.
 
-**utils**
+# Utils
 This is a great place to put miscellaneous helpers and utilities. Things like date helpers, formatters, etc. are often found here. However, it should only be used for things that are truely shared across your application. If a helper or utility is only used by a specific component or model, consider co-locating your helper with that component or model.
-
-**app.tsx** This is the entry point to your app. This is where you will find the main App component which renders the rest of the application.
 
 ### ./ignite directory
 
@@ -125,21 +116,24 @@ This is where your stories will be registered and where the Storybook configs wi
 
 This directory will hold your Jest configs and mocks, as well as your [storyshots](https://github.com/storybooks/storybook/tree/master/addons/storyshots) test file. This is a file that contains the snapshots of all your component storybooks.
 
-## Running Storybook
+### Fastlane
 
-From the command line in your generated app's root directory, enter `yarn run storybook`
-This starts up the storybook server and opens a story navigator in your browser. With your app
-running, choose Toggle Storybook from the developer menu to switch to Storybook; you can then
-use the story navigator in your browser to change stories.
+**Build IOS**
 
-For Visual Studio Code users, there is a handy extension that makes it easy to load Storybook use cases into a running emulator via tapping on items in the editor sidebar. Install the `React Native Storybook` extension by `Orta`, hit `cmd + shift + P` and select "Reconnect Storybook to VSCode". Expand the STORYBOOK section in the sidebar to see all use cases for components that have `.story.tsx` files in their directories.
+```
+cd ios
+fastlane ios build
+fastlane ios publish
+```
 
-## Running e2e tests
+**Build Android**
 
-Read [e2e setup instructions](./e2e/README.md).
+```
+cd android
+fastlane android build
+fastlane android publish
 
-## Previous Boilerplates
 
-- [2018 aka Bowser](https://github.com/infinitered/ignite-bowser)
-- [2017 aka Andross](https://github.com/infinitered/ignite-andross)
-- [2016 aka Ignite 1.0](https://github.com/infinitered/ignite-ir-boilerplate-2016)
+## The latest and greatest boilerplate for Infinite Red opinions
+
+This is the boilerplate that [Infinite Red](https://infinite.red) uses as a way to test bleeding-edge changes to our React Native stack.
